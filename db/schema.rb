@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_21_004814) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_21_232508) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,6 +27,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_21_004814) do
     t.string "iternal_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "address_owner_id", null: false
+    t.index ["address_owner_id"], name: "index_addresses_on_address_owner_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,4 +39,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_21_004814) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "addresses", "address_owners"
 end
