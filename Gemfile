@@ -73,6 +73,12 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # Formatted ruby console output
+  gem 'awesome_print', '~> 1.8'
+
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :test do
