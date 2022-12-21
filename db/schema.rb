@@ -25,10 +25,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_21_004814) do
     t.string "street"
     t.integer "external_number"
     t.string "iternal_number"
-    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,5 +37,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_21_004814) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "addresses", "users"
 end
