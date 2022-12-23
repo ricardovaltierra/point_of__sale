@@ -1,5 +1,10 @@
 
 FactoryBot.define do
+  factory :store do
+    name { "MyString" }
+    address_owner { nil }
+  end
+
   factory :address_owner do
     owner_type { false }
   end
