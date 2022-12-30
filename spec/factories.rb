@@ -1,5 +1,13 @@
 
 FactoryBot.define do
+  factory :ingredient do
+    name { "MyString" }
+    stock_portions { 1 }
+    price_per_portion { 1.5 }
+    allergenes_and_additives { "MyString" }
+    ingredient_type { nil }
+  end
+
   factory :additional_information_badge do
     id { "aib1" }
     name { "MyString" }
