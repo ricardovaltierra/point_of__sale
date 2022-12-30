@@ -1,5 +1,9 @@
 
 FactoryBot.define do
+  factory :ingredient_type do
+    name { "MyString" }
+  end
+
   factory :ingredient do
     name { "MyString" }
     stock_portions { 1 }
