@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Additive, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'default values' do
+    let(:example_additive) { create :additive }
+
+    it 'has a non-integer primary key' do
+      expect(example_additive.id).to be_a String
+    end
+  end
 end
