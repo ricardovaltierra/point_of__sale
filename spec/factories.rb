@@ -1,5 +1,9 @@
 
 FactoryBot.define do
+  factory :allergene do
+    contains { "MyText" }
+  end
+
   factory :store_schedule do
     store { nil }
     day_of_the_week { 1 }
