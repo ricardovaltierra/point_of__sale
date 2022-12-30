@@ -1,7 +1,8 @@
 
 FactoryBot.define do
   factory :allergene do
-    contains { "MyText" }
+    id { "a2" }
+    contains { ["wheat, barley"] }
   end
 
   factory :store_schedule do
