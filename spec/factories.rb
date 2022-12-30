@@ -20,7 +20,7 @@ FactoryBot.define do
   end
 
   factory :address_owner do
-    owner_type { false }
+    owner_type { true }
   end
 
   factory :address do

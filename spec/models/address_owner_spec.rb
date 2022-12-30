@@ -14,4 +14,10 @@ RSpec.describe AddressOwner, type: :model do
       is_expected.to have_one(:store).inverse_of :address_owner
     end
   end
+
+  describe 'default values' do
+    it 'has an owner_type of true' do
+      expect(subject.owner_type).to eq true
+    end
+  end
 end
