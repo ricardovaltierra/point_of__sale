@@ -1,6 +1,7 @@
 
 FactoryBot.define do
   factory :ingredient_type do
+    id { "it1" }
     name { "MyString" }
   end
 
