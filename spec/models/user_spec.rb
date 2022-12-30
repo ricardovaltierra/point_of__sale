@@ -11,7 +11,7 @@ RSpec.describe User, type: :model do
     end
     
     it 'has one credit_card ' do
-      is_expected.to belong_to :credit_card
+      is_expected.to belong_to(:credit_card)
     end
   end
 end
