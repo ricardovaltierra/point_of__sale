@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_30_131105) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_30_134245) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,6 +61,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_30_131105) do
     t.index ["food_type_id"], name: "index_food_item_crusts_on_food_type_id"
   end
 
+  create_table "food_type_sizes", force: :cascade do |t|
+    t.bigint "food_type_id", null: false
+    t.string "name"
+    t.float "quantity"
+    t.string "unit"
+    t.string "price_per_portion"
+    t.float "extra_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["food_type_id"], name: "index_food_type_sizes_on_food_type_id"
+  end
+
   create_table "food_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -100,6 +112,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_30_131105) do
   add_foreign_key "addresses", "address_owners"
   add_foreign_key "credit_cards", "users"
   add_foreign_key "food_item_crusts", "food_types"
+  add_foreign_key "food_type_sizes", "food_types"
   add_foreign_key "store_schedules", "stores"
   add_foreign_key "stores", "address_owners"
   add_foreign_key "users", "address_owners"
