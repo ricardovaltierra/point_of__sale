@@ -11,7 +11,7 @@ RSpec.describe User, type: :model do
     end
     
     it 'has one credit_card ' do
-      is_expected.to have_one(:credit_card)
+      is_expected.to have_one(:credit_card).inverse_of :user
     end
   end
 end
