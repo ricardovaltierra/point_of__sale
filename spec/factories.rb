@@ -1,6 +1,7 @@
 
 FactoryBot.define do
   factory :food_item_crust do
+    id { "s1" }
     name { "MyString" }
     food_type { nil }
   end

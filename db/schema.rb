@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_30_124443) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_30_131105) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_30_124443) do
     t.index ["user_id"], name: "index_credit_cards_on_user_id"
   end
 
-  create_table "food_item_crusts", force: :cascade do |t|
+  create_table "food_item_crusts", id: :string, force: :cascade do |t|
     t.string "name"
     t.bigint "food_type_id", null: false
     t.datetime "created_at", null: false

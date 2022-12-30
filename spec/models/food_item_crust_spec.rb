@@ -7,9 +7,12 @@ RSpec.describe FoodItemCrust, type: :model do
     end
   end
 
-  describe 'default values' do    
+  describe 'default values' do
+    let(:example_food_type)  { create :food_type  }
+    let(:example_food_crust) { create :food_item_crust, food_type: example_food_type }
+    
     it 'has a non-integer primary key' do
-      expect(:example_food_crust).to be_a String
+      expect(example_food_crust.id).to be_a String
     end
   end
 end
