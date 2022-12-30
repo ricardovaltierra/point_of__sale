@@ -1,6 +1,7 @@
 
 FactoryBot.define do
   factory :additive do
+    id { "add1" }
     name { "MyString" }
   end
 
