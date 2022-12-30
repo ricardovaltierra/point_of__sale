@@ -9,5 +9,9 @@ RSpec.describe AddressOwner, type: :model do
     it 'has one user' do
       is_expected.to have_one(:user).inverse_of :address_owner
     end
+
+    it 'has one store' do
+      is_expected.to have_one(:store)
+    end
   end
 end
