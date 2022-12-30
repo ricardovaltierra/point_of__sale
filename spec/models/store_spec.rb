@@ -11,7 +11,7 @@ RSpec.describe Store, type: :model do
     end
 
     it 'has one store_schedule' do
-      is_expected.to have_one(:store_schedule)
+      is_expected.to have_one(:store_schedule).inverse_of :store
     end
   end
 end

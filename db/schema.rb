@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_30_093509) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_30_101608) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,6 +41,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_30_093509) do
     t.index ["user_id"], name: "index_credit_cards_on_user_id"
   end
 
+  create_table "store_schedules", force: :cascade do |t|
+    t.bigint "store_id", null: false
+    t.integer "day_of_the_week"
+    t.string "time_opens"
+    t.string "time_closes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["store_id"], name: "index_store_schedules_on_store_id"
+  end
+
   create_table "stores", force: :cascade do |t|
     t.string "name"
     t.bigint "address_owner_id", null: false
@@ -61,6 +71,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_30_093509) do
 
   add_foreign_key "addresses", "address_owners"
   add_foreign_key "credit_cards", "users"
+  add_foreign_key "store_schedules", "stores"
   add_foreign_key "stores", "address_owners"
   add_foreign_key "users", "address_owners"
 end
