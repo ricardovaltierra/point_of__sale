@@ -1,5 +1,9 @@
 
 FactoryBot.define do
+  factory :food_type do
+    name { "MyString" }
+  end
+
   factory :additive do
     id { "add1" }
     name { "MyString" }
