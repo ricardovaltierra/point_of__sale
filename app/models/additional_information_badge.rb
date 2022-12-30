@@ -1,0 +1,2 @@
+class AdditionalInformationBadge < ApplicationRecord
+end

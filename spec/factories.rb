@@ -1,5 +1,9 @@
 
 FactoryBot.define do
+  factory :additional_information_badge do
+    name { "MyString" }
+  end
+
   factory :food_type_size do
     food_type { nil }
     name { "MyString" }
