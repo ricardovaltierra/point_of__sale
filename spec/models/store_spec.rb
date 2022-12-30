@@ -9,5 +9,9 @@ RSpec.describe Store, type: :model do
     it 'has one addres through address_owner' do
       is_expected.to have_one(:address).through :address_owner
     end
+
+    it 'has one store_schedule' do
+      is_expected.to have_one(:store_schedule)
+    end
   end
 end
