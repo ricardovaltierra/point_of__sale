@@ -1,5 +1,12 @@
 
 FactoryBot.define do
+  factory :credit_card do
+    name_on_card { "MyString" }
+    number { "MyString" }
+    expiration_date { "MyString" }
+    user { nil }
+  end
+
   factory :store do
     name { "MyString" }
     address_owner { nil }
