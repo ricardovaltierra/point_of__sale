@@ -1,5 +1,14 @@
 
 FactoryBot.define do
+  factory :food_type_size do
+    food_type { nil }
+    name { "MyString" }
+    quantity { 1.5 }
+    unit { "MyString" }
+    price_per_portion { "MyString" }
+    extra_price { 1.5 }
+  end
+
   factory :food_item_crust do
     id { "s1" }
     name { "MyString" }
