@@ -1,6 +1,7 @@
 
 FactoryBot.define do
   factory :additional_information_badge do
+    id { "aib1" }
     name { "MyString" }
   end
 
