@@ -1,5 +1,9 @@
 
 FactoryBot.define do
+  factory :additive do
+    name { "MyString" }
+  end
+
   factory :allergene do
     id { "a2" }
     contains { ["wheat, barley"] }
