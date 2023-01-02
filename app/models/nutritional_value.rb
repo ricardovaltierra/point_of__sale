@@ -1,0 +1,2 @@
+class NutritionalValue < ApplicationRecord
+end

@@ -1,5 +1,20 @@
 
 FactoryBot.define do
+  factory :nutritional_value do
+    energy_kj { 1.5 }
+    energy_kcal { 1.5 }
+    carbohydrate_g { 1.5 }
+    sugar_g { 1.5 }
+    fat_g { 1.5 }
+    saturated_fat_g { 1.5 }
+    fibre_g { 1.5 }
+    protein_g { 1.5 }
+    sodium_mg { 1.5 }
+    weight_g { 1.5 }
+    salt_g { 1.5 }
+    ingredient { nil }
+  end
+
   factory :ingredient_type do
     id { "it1" }
     name { "MyString" }

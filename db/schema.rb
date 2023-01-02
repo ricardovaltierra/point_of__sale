@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_30_233730) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_02_192022) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -100,6 +100,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_30_233730) do
     t.datetime "updated_at", null: false
     t.string "ingredient_type_id"
     t.index ["ingredient_type_id"], name: "index_ingredients_on_ingredient_type_id"
+  end
+
+  create_table "nutritional_values", primary_key: "ingredient_id", force: :cascade do |t|
+    t.float "energy_kj"
+    t.float "energy_kcal"
+    t.float "carbohydrate_g"
+    t.float "sugar_g"
+    t.float "fat_g"
+    t.float "saturated_fat_g"
+    t.float "fibre_g"
+    t.float "protein_g"
+    t.float "sodium_mg"
+    t.float "weight_g"
+    t.float "salt_g"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "store_schedules", force: :cascade do |t|
