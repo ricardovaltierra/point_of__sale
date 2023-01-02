@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_02_192022) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_02_194410) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -152,6 +152,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_192022) do
   add_foreign_key "credit_cards", "users"
   add_foreign_key "food_item_crusts", "food_types"
   add_foreign_key "food_type_sizes", "food_types"
+  add_foreign_key "nutritional_values", "ingredients"
   add_foreign_key "store_schedules", "stores"
   add_foreign_key "stores", "address_owners"
   add_foreign_key "users", "address_owners"
