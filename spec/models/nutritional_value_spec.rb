@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe NutritionalValue, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'associations' do 
+    it 'belongs to an ingredient' do
+      is_expected.to belong_to(:ingredient)
+    end
+  end
 end
