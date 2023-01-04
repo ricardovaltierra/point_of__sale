@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_02_194410) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_04_040439) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -36,10 +36,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_194410) do
     t.integer "postal_code"
     t.string "street"
     t.integer "external_number"
-    t.string "iternal_number"
+    t.string "internal_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "address_owner_id", null: false
+    t.boolean "address_owner_type", default: true, null: false
     t.index ["address_owner_id"], name: "index_addresses_on_address_owner_id"
   end
 
