@@ -96,5 +96,7 @@ FactoryBot.define do
     first_name { "MyString" }
     last_name { "MyString" }
     email { "MyString" }
+    mobile_phone_number { "+524776849578" }
+    company { "The company A.C." }
   end
 end

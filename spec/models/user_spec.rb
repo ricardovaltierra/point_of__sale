@@ -14,4 +14,13 @@ RSpec.describe User, type: :model do
       is_expected.to have_one(:credit_card).inverse_of :user
     end
   end
+
+  describe 'default values' do
+    let(:example_user) { build :user }
+
+    it 'has an addres_owner id' do
+      expect { example_user.save }
+        .to change { User.count }.by  1
+    end
+  end
 end
