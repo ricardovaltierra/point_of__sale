@@ -1,5 +1,12 @@
 
 FactoryBot.define do
+  factory :food_item do
+    name { "MyString" }
+    entry_price { 1.5 }
+    picture_url { "MyString" }
+    general_description { "MyText" }
+  end
+
   factory :nutritional_value do
     energy_kj { 1.5 }
     energy_kcal { 1.5 }
