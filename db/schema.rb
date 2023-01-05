@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_05_020917) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_05_022351) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -77,6 +77,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_05_020917) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "food_type_id", null: false
+    t.text "additional_information_badges", default: [], array: true
     t.index ["food_type_id"], name: "index_food_items_on_food_type_id"
   end
 
