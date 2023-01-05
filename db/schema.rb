@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_05_023031) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_05_023440) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -73,6 +73,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_05_023031) do
     t.jsonb "ingredients"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "food_item_id", null: false
+    t.index ["food_item_id"], name: "index_food_item_ingredient_lists_on_food_item_id"
   end
 
   create_table "food_items", force: :cascade do |t|
@@ -171,6 +173,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_05_023031) do
   add_foreign_key "addresses", "address_owners"
   add_foreign_key "credit_cards", "users"
   add_foreign_key "food_item_crusts", "food_types"
+  add_foreign_key "food_item_ingredient_lists", "food_items"
   add_foreign_key "food_items", "food_types"
   add_foreign_key "food_type_sizes", "food_types"
   add_foreign_key "nutritional_values", "ingredients"
