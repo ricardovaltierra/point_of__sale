@@ -98,5 +98,6 @@ FactoryBot.define do
     email { "MyString" }
     mobile_phone_number { "+524776849578" }
     company { "The company A.C." }
+    association :address_owner
   end
 end
