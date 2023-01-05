@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_04_043420) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_05_010811) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -97,10 +97,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_04_043420) do
     t.string "name"
     t.integer "stock_portions"
     t.float "price_per_portion"
-    t.string "allergenes_and_additives"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "ingredient_type_id"
+    t.string "allergenes_and_additives", default: [], array: true
     t.index ["ingredient_type_id"], name: "index_ingredients_on_ingredient_type_id"
   end
 
