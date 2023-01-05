@@ -1,0 +1,2 @@
+class FoodItemIngredientList < ApplicationRecord
+end

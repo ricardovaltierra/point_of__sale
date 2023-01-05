@@ -1,5 +1,9 @@
 
 FactoryBot.define do
+  factory :food_item_ingredient_list do
+    ingredients { "" }
+  end
+
   factory :food_item do
     name { "MyString" }
     entry_price { 1.5 }
