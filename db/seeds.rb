@@ -7,3 +7,4 @@
 #   Character.create(name: "Luke", movie: movies.first)
 load 'db/seeds/addresses.rb'
 load 'db/seeds/users.rb'
+load 'db/seeds/store.rb'
