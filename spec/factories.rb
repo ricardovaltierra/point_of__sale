@@ -1,5 +1,13 @@
 
 FactoryBot.define do
+  factory :order do
+    delivery_type { false }
+    delivery_date { "2023-01-20" }
+    delivery_time { "2023-01-20 13:43:37" }
+    coupon_number { "MyString" }
+    total_amount { 1.5 }
+  end
+
   factory :food_item_ingredient_list do
     ingredients { "" }
   end
