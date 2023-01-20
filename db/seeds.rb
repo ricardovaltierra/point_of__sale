@@ -8,3 +8,4 @@
 load 'db/seeds/addresses.rb'
 load 'db/seeds/users.rb'
 load 'db/seeds/store.rb'
+load 'db/seeds/allergenes.rb'
