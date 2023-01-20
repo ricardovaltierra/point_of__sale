@@ -13,5 +13,9 @@ RSpec.describe Store, type: :model do
     it 'has one store_schedule' do
       is_expected.to have_one(:store_schedule).inverse_of :store
     end
+
+    it 'has many orders' do 
+      is_expected.to have_many(:orders).inverse_of :store
+    end
   end
 end
