@@ -1,5 +1,66 @@
 
 FactoryBot.define do
+  factory :order do
+    delivery_type { false }
+    delivery_date { "2023-01-20" }
+    delivery_time { "2023-01-20 13:43:37" }
+    coupon_number { "MyString" }
+    total_amount { 1.5 }
+  end
+
+  factory :food_item_ingredient_list do
+    ingredients { "" }
+  end
+
+  factory :food_item do
+    name { "MyString" }
+    entry_price { 1.5 }
+    picture_url { "MyString" }
+    general_description { "MyText" }
+  end
+
+  factory :nutritional_value do
+    energy_kj { 1.5 }
+    energy_kcal { 1.5 }
+    carbohydrate_g { 1.5 }
+    sugar_g { 1.5 }
+    fat_g { 1.5 }
+    saturated_fat_g { 1.5 }
+    fibre_g { 1.5 }
+    protein_g { 1.5 }
+    sodium_mg { 1.5 }
+    weight_g { 1.5 }
+    salt_g { 1.5 }
+    ingredient { nil }
+  end
+
+  factory :ingredient_type do
+    id { "it1" }
+    name { "MyString" }
+  end
+
+  factory :ingredient do
+    name { "MyString" }
+    stock_portions { 1 }
+    price_per_portion { 1.5 }
+    allergenes_and_additives { "MyString" }
+    ingredient_type { nil }
+  end
+
+  factory :additional_information_badge do
+    id { "aib1" }
+    name { "MyString" }
+  end
+
+  factory :food_type_size do
+    food_type { nil }
+    name { "MyString" }
+    quantity { 1.5 }
+    unit { "MyString" }
+    price_per_portion { "MyString" }
+    extra_price { 1.5 }
+  end
+
   factory :food_item_crust do
     id { "s1" }
     name { "MyString" }
@@ -54,5 +115,8 @@ FactoryBot.define do
     first_name { "MyString" }
     last_name { "MyString" }
     email { "MyString" }
+    mobile_phone_number { "+524776849578" }
+    company { "The company A.C." }
+    association :address_owner
   end
 end

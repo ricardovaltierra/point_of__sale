@@ -10,9 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_30_131105) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_20_201703) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "additional_information_badges", id: :string, force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "additives", id: :string, force: :cascade do |t|
     t.string "name"
@@ -30,10 +36,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_30_131105) do
     t.integer "postal_code"
     t.string "street"
     t.integer "external_number"
-    t.string "iternal_number"
+    t.string "internal_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "address_owner_id", null: false
+    t.boolean "address_owner_type", default: true, null: false
+    t.text "delivery_instructions"
     t.index ["address_owner_id"], name: "index_addresses_on_address_owner_id"
   end
 
@@ -61,10 +69,89 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_30_131105) do
     t.index ["food_type_id"], name: "index_food_item_crusts_on_food_type_id"
   end
 
+  create_table "food_item_ingredient_lists", force: :cascade do |t|
+    t.jsonb "ingredients"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "food_item_id", null: false
+    t.index ["food_item_id"], name: "index_food_item_ingredient_lists_on_food_item_id"
+  end
+
+  create_table "food_items", force: :cascade do |t|
+    t.string "name"
+    t.float "entry_price"
+    t.string "picture_url"
+    t.text "general_description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "food_type_id", null: false
+    t.text "additional_information_badges", default: [], array: true
+    t.index ["food_type_id"], name: "index_food_items_on_food_type_id"
+  end
+
+  create_table "food_type_sizes", force: :cascade do |t|
+    t.bigint "food_type_id", null: false
+    t.string "name"
+    t.float "quantity"
+    t.string "unit"
+    t.string "price_per_portion"
+    t.float "extra_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["food_type_id"], name: "index_food_type_sizes_on_food_type_id"
+  end
+
   create_table "food_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "ingredient_types", id: :string, force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "name"
+    t.integer "stock_portions"
+    t.float "price_per_portion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "ingredient_type_id"
+    t.string "allergenes_and_additives", default: [], array: true
+    t.index ["ingredient_type_id"], name: "index_ingredients_on_ingredient_type_id"
+  end
+
+  create_table "nutritional_values", primary_key: "ingredient_id", force: :cascade do |t|
+    t.float "energy_kj"
+    t.float "energy_kcal"
+    t.float "carbohydrate_g"
+    t.float "sugar_g"
+    t.float "fat_g"
+    t.float "saturated_fat_g"
+    t.float "fibre_g"
+    t.float "protein_g"
+    t.float "sodium_mg"
+    t.float "weight_g"
+    t.float "salt_g"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.boolean "delivery_type"
+    t.date "delivery_date"
+    t.time "delivery_time"
+    t.string "coupon_number"
+    t.float "total_amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.bigint "store_id", null: false
+    t.index ["store_id"], name: "index_orders_on_store_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "store_schedules", force: :cascade do |t|
@@ -100,6 +187,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_30_131105) do
   add_foreign_key "addresses", "address_owners"
   add_foreign_key "credit_cards", "users"
   add_foreign_key "food_item_crusts", "food_types"
+  add_foreign_key "food_item_ingredient_lists", "food_items"
+  add_foreign_key "food_items", "food_types"
+  add_foreign_key "food_type_sizes", "food_types"
+  add_foreign_key "nutritional_values", "ingredients"
+  add_foreign_key "orders", "stores"
+  add_foreign_key "orders", "users"
   add_foreign_key "store_schedules", "stores"
   add_foreign_key "stores", "address_owners"
   add_foreign_key "users", "address_owners"
