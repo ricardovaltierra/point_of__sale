@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Order, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'associations' do
+    it 'belongs to a user' do
+      is_expected.to belong_to(:user).inverse_of :orders
+    end
+  end
 end

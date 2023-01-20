@@ -13,6 +13,10 @@ RSpec.describe User, type: :model do
     it 'has one credit_card ' do
       is_expected.to have_one(:credit_card).inverse_of :user
     end
+
+    it 'has_many orders' do
+      is_expected.to have_many(:orders).inverse_of :user
+    end
   end
 
   describe 'default values' do
