@@ -22,8 +22,8 @@ food_type_sizes.each_with_index do |object, index|
     id = 15
   end
 
-  food_type_id: id,
   FoodTypeSize.create(
+    food_type_id: id,
     name: object[:name],
     quantity: object[:quantity],
     unit: object[:unit],
