@@ -1,6 +1,7 @@
 class Api::V1::AdditionalInformationBadgesController < ApplicationController
   def index
-    render json: 'Building...', status: :ok
+    @badges = AdditionalInformationBadge.all
+    render json: @badges, status: 200
   end
 
   def show
