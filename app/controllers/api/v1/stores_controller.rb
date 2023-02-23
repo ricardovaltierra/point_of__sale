@@ -9,7 +9,7 @@ class Api::V1::StoresController < ApplicationController
     if store
       render json: store, status: 200
     else
-      render json: { error: "Product not found. Please try with another one." }, status: :not_found
+      render json: { error: "Store not found. Please try with another one." }, status: :not_found
     end
   end
 end
